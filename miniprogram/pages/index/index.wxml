@@ -1,0 +1,48 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 欢迎页 -->
+  <view class="welcome-section">
+    <text class="title">🎓 家教预约</text>
+    <text class="subtitle">连接优秀家教，成就更好未来</text>
+  </view>
+  
+  <!-- 角色选择 -->
+  <view class="role-section">
+    <view class="role-card teacher" bindtap="selectRole" data-role="teacher">
+      <text class="role-icon">👨‍🏫</text>
+      <text class="role-name">我是老师</text>
+      <text class="role-desc">发布空闲时间，接收学生预约</text>
+    </view>
+    
+    <view class="role-card student" bindtap="selectRole" data-role="student">
+      <text class="role-icon">📚</text>
+      <text class="role-name">我是学生</text>
+      <text class="role-desc">寻找合适老师，预约辅导课程</text>
+    </view>
+  </view>
+  
+  <!-- 功能介绍 -->
+  <view class="features-section">
+    <text class="section-title">平台特色</text>
+    <view class="feature-list">
+      <view class="feature-item">
+        <text class="feature-icon">✅</text>
+        <text class="feature-text">实名认证，安全可靠</text>
+      </view>
+      <view class="feature-item">
+        <text class="feature-icon">📍</text>
+        <text class="feature-text">位置打卡，保障安全</text>
+      </view>
+      <view class="feature-item">
+        <text class="feature-icon">⭐</text>
+        <text class="feature-text">真实评价，透明可信</text>
+      </view>
+      <view class="feature-item">
+        <text class="feature-icon">💰</text>
+        <text class="feature-text">合理定价，性价比高</text>
+      </view>
+    </view>
+  </view>
+  
+  <button class="start-btn" bindtap="goToLogin">开始使用</button>
+</view>
