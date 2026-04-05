@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/teacher-dashboard/teacher-dashboard",
+    "pages/student-dashboard/student-dashboard",
+    "pages/teacher-profile/teacher-profile",
+    "pages/booking/booking",
+    "pages/checkin/checkin",
+    "pages/evaluation/evaluation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarTitleText": "家教预约",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

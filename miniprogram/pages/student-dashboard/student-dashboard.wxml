@@ -1,0 +1,77 @@
+<!--pages/student-dashboard/student-dashboard.wxml-->
+<view class="container">
+  <!-- 顶部搜索 -->
+  <view class="header">
+    <view class="search-box">
+      <input 
+        class="search-input" 
+        placeholder="搜索老师或科目" 
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="searchTeachers"
+      />
+      <text class="search-icon" bindtap="searchTeachers">🔍</text>
+    </view>
+  </view>
+  
+  <!-- 科目筛选 -->
+  <view class="subject-filter">
+    <scroll-view scroll-x class="subject-scroll">
+      <view 
+        class="subject-tag {{selectedSubject === '' ? 'active' : ''}}" 
+        bindtap="selectSubject" 
+        data-subject=""
+      >
+        全部
+      </view>
+      <view 
+        class="subject-tag {{selectedSubject === item ? 'active' : ''}}" 
+        wx:for="{{subjects}}" 
+        wx:key="*this"
+        bindtap="selectSubject" 
+        data-subject="{{item}}"
+      >
+        {{item}}
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 老师列表 -->
+  <view class="teacher-list">
+    <view 
+      class="teacher-card" 
+      wx:for="{{teacherList}}" 
+      wx:key="_id"
+      bindtap="viewTeacherDetail"
+      data-id="{{item.userId._id}}"
+    >
+      <view class="teacher-header">
+        <image class="avatar" src="{{item.userId.avatar || '/images/default-avatar.png'}}" mode="aspectFill" />
+        <view class="teacher-info">
+          <text class="teacher-name">{{item.name}}</text>
+          <text class="teacher-school">{{item.school}} · {{item.major}}</text>
+          <text class="teacher-edu">{{item.education}}</text>
+        </view>
+      </view>
+      
+      <view class="teacher-subjects">
+        <text class="subject-item" wx:for="{{item.subjects}}" wx:key="*this" wx:for-item="subject">
+          {{subject}}
+        </text>
+      </view>
+      
+      <view class="teacher-rating">
+        <text class="rating-stars">⭐{{item.averageRating.toFixed(1)}}</text>
+        <text class="rating-count">({{item.reviewCount}}条评价)</text>
+      </view>
+      
+      <button class="book-btn" bindtap="bookTeacher" data-id="{{item.userId._id}}">
+        预约课程
+      </button>
+    </view>
+    
+    <view class="empty-tip" wx:if="{{teacherList.length === 0}}">
+      <text>暂无老师信息</text>
+    </view>
+  </view>
+</view>

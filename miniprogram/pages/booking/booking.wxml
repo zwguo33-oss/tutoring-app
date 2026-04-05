@@ -1,0 +1,55 @@
+<!--pages/booking/booking.wxml-->
+<view class="container">
+  <view class="form-section">
+    <text class="section-title">预约课程</text>
+    
+    <view class="form-item">
+      <text class="label">选择科目</text>
+      <picker mode="selector" range="{{subjects}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+        <view class="picker">{{subjects[subjectIndex] || '请选择科目'}}</view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">预约日期</text>
+      <picker mode="date" value="{{appointmentDate}}" bindchange="onDateChange">
+        <view class="picker">{{appointmentDate || '请选择日期'}}</view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">预约时间</text>
+      <picker mode="time" value="{{appointmentTime}}" bindchange="onTimeChange">
+        <view class="picker">{{appointmentTime || '请选择时间'}}</view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">上课地点</text>
+      <input class="input" placeholder="请输入详细地址" value="{{address}}" bindinput="onAddressInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">定位</text>
+      <view class="location-box" bindtap="chooseLocation">
+        <text wx:if="{{location.address}}">📍 {{location.address}}</text>
+        <text wx:else>+ 点击选择位置</text>
+      </view>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">备注</text>
+      <textarea class="textarea" placeholder="请描述具体需求" value="{{notes}}" bindinput="onNotesInput" />
+    </view>
+  </view>
+  
+  <view class="summary">
+    <text class="summary-title">预约信息确认</text>
+    <view class="summary-item">老师：{{teacherName}}</view>
+    <view class="summary-item">科目：{{subjects[subjectIndex]}}</view>
+    <view class="summary-item">时间：{{appointmentDate}} {{appointmentTime}}</view>
+    <view class="summary-item">地点：{{location.address || address}}</view>
+  </view>
+  
+  <button class="submit-btn" bindtap="submitBooking">确认预约</button>
+</view>

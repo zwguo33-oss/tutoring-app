@@ -1,0 +1,153 @@
+/* pages/student-dashboard/student-dashboard.wxss */
+.container {
+  padding: 30rpx;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 30rpx;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 50rpx;
+  padding: 20rpx 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.search-icon {
+  font-size: 40rpx;
+  margin-left: 20rpx;
+}
+
+.subject-filter {
+  margin-bottom: 30rpx;
+}
+
+.subject-scroll {
+  white-space: nowrap;
+}
+
+.subject-tag {
+  display: inline-block;
+  padding: 12rpx 30rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.subject-tag.active {
+  background: #667eea;
+  color: #fff;
+}
+
+.teacher-list {
+  margin-top: 20rpx;
+}
+
+.teacher-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+}
+
+.teacher-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.teacher-info {
+  flex: 1;
+}
+
+.teacher-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.teacher-school {
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 5rpx;
+}
+
+.teacher-edu {
+  font-size: 24rpx;
+  color: #999;
+  background: #f5f5f5;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  display: inline-block;
+}
+
+.teacher-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.subject-item {
+  font-size: 24rpx;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+}
+
+.teacher-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.rating-stars {
+  font-size: 28rpx;
+  color: #ff9800;
+  margin-right: 10rpx;
+}
+
+.rating-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.book-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  padding: 20rpx;
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 100rpx;
+  color: #999;
+  font-size: 28rpx;
+}

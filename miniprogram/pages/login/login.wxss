@@ -1,0 +1,111 @@
+/* pages/login/login.wxss */
+.container {
+  padding: 40rpx;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.subtitle {
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.role-selector {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+
+.role-card {
+  width: 48%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20rpx;
+  padding: 40rpx 20rpx;
+  text-align: center;
+  backdrop-filter: blur(10rpx);
+  transition: all 0.3s;
+}
+
+.role-card.active {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+.role-icon {
+  font-size: 80rpx;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.role-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.role-desc {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.role-card.active .role-name,
+.role-card.active .role-desc {
+  color: #667eea;
+}
+
+.auth-section {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.auth-btn {
+  background: #07c160;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}
+
+.manual-input {
+  margin-top: 30rpx;
+}
+
+.input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid #eee;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  background: #fff;
+  color: #667eea;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 30rpx;
+}
+
+.submit-btn[disabled] {
+  background: rgba(255, 255, 255, 0.5);
+  color: rgba(102, 126, 234, 0.5);
+}

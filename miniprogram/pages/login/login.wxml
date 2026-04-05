@@ -1,0 +1,59 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">欢迎使用家教预约</text>
+    <text class="subtitle">请选择您的身份</text>
+  </view>
+  
+  <view class="role-selector">
+    <view 
+      class="role-card {{selectedRole === 'teacher' ? 'active' : ''}}" 
+      bindtap="selectRole" 
+      data-role="teacher"
+    >
+      <text class="role-icon">👨‍🏫</text>
+      <text class="role-name">我是老师</text>
+      <text class="role-desc">发布空闲时间，接收预约</text>
+    </view>
+    
+    <view 
+      class="role-card {{selectedRole === 'student' ? 'active' : ''}}" 
+      bindtap="selectRole" 
+      data-role="student"
+    >
+      <text class="role-icon">📚</text>
+      <text class="role-name">我是学生</text>
+      <text class="role-desc">选择老师，预约课程</text>
+    </view>
+  </view>
+  
+  <view class="auth-section">
+    <button class="auth-btn" bindtap="getPhoneNumber" type="warn">
+      获取手机号一键登录
+    </button>
+    
+    <view class="manual-input" wx:if="{{showManualInput}}">
+      <input 
+        class="input" 
+        placeholder="请输入手机号" 
+        value="{{phone}}"
+        bindinput="onPhoneInput"
+        type="number"
+      />
+      <input 
+        class="input" 
+        placeholder="请输入微信号" 
+        value="{{wechatId}}"
+        bindinput="onWechatInput"
+      />
+    </view>
+  </view>
+  
+  <button 
+    class="submit-btn" 
+    bindtap="submitRole"
+    disabled="{{!selectedRole}}"
+  >
+    确认身份
+  </button>
+</view>

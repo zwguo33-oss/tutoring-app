@@ -1,0 +1,58 @@
+<!--pages/evaluation/evaluation.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">课程评价</text>
+    <text class="subtitle">请对本次课程进行评价</text>
+  </view>
+  
+  <view class="teacher-info">
+    <text class="teacher-name">{{teacherName}}</text>
+    <text class="subject">{{subject}}</text>
+    <text class="time">{{appointmentTime}}</text>
+  </view>
+  
+  <view class="rating-section">
+    <text class="section-title">整体评分</text>
+    <view class="stars">
+      <text 
+        class="star {{index < rating ? 'active' : ''}}" 
+        wx:for="{{5}}" 
+        wx:key="*this"
+        bindtap="setRating"
+        data-rating="{{index + 1}}"
+      >
+        ⭐
+      </text>
+    </view>
+    <text class="rating-text">{{ratingText}}</text>
+  </view>
+  
+  <view class="comment-section">
+    <text class="section-title">评价内容</text>
+    <textarea 
+      class="textarea" 
+      placeholder="请分享您的上课体验..." 
+      value="{{comment}}"
+      bindinput="onCommentInput"
+      maxlength="500"
+    />
+    <text class="char-count">{{comment.length}}/500</text>
+  </view>
+  
+  <view class="tags-section">
+    <text class="section-title">快速标签</text>
+    <view class="tags">
+      <view 
+        class="tag {{selectedTags.includes(item) ? 'selected' : ''}}" 
+        wx:for="{{tags}}" 
+        wx:key="*this"
+        bindtap="toggleTag"
+        data-tag="{{item}}"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+  
+  <button class="submit-btn" bindtap="submitEvaluation">提交评价</button>
+</view>

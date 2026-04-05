@@ -1,0 +1,58 @@
+<!--pages/checkin/checkin.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">上课打卡</text>
+    <text class="subtitle">到达上课地点后打卡</text>
+  </view>
+  
+  <view class="booking-list">
+    <text class="section-title">待打卡课程</text>
+    
+    <view 
+      class="booking-item" 
+      wx:for="{{pendingCheckins}}" 
+      wx:key="_id"
+    >
+      <view class="booking-info">
+        <text class="student-name">{{item.studentId.nickname}}</text>
+        <text class="subject">{{item.subject}}</text>
+      </view>
+      <view class="booking-time">
+        <text>📅 {{formatDate(item.appointmentTime)}}</text>
+        <text>📍 {{item.location.address}}</text>
+      </view>
+      
+      <view class="distance-info" wx:if="{{item.distance}}">
+        <text>距离上课地点：{{item.distance}}米</text>
+      </view>
+      
+      <button 
+        class="checkin-btn" 
+        bindtap="doCheckin" 
+        data-id="{{item._id}}"
+        data-latitude="{{item.location.latitude}}"
+        data-longitude="{{item.location.longitude}}"
+      >
+        📍 打卡
+      </button>
+    </view>
+    
+    <view class="empty-tip" wx:if="{{pendingCheckins.length === 0}}">
+      <text>暂无待打卡课程</text>
+    </view>
+  </view>
+  
+  <view class="checkin-record">
+    <text class="section-title">打卡记录</text>
+    
+    <view class="record-item" wx:for="{{checkinRecords}}" wx:key="_id">
+      <view class="record-info">
+        <text class="record-date">{{formatDate(item.appointmentTime)}}</text>
+        <text class="record-status">{{item.teacherCheckin.checked ? '✓ 已打卡' : '未打卡'}}</text>
+      </view>
+      <text class="record-time" wx:if="{{item.teacherCheckin.checkinTime}}">
+        打卡时间：{{formatTime(item.teacherCheckin.checkinTime)}}
+      </text>
+    </view>
+  </view>
+</view>

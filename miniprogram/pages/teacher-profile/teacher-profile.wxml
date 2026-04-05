@@ -1,0 +1,91 @@
+<!--pages/teacher-profile/teacher-profile.wxml-->
+<view class="container">
+  <view class="form-section">
+    <text class="section-title">基本信息</text>
+    
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input class="input" placeholder="请输入姓名" value="{{formData.name}}" bindinput="onInput" data-field="name" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">性别</text>
+      <picker mode="selector" range="{{['男', '女']}}" value="{{genderIndex}}" bindchange="onGenderChange">
+        <view class="picker">{{['男', '女'][genderIndex] || '请选择'}}</view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">学校</text>
+      <input class="input" placeholder="请输入学校" value="{{formData.school}}" bindinput="onInput" data-field="school" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">专业</text>
+      <input class="input" placeholder="请输入专业" value="{{formData.major}}" bindinput="onInput" data-field="major" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">学历</text>
+      <picker mode="selector" range="{{['本科', '硕士', '博士']}}" value="{{eduIndex}}" bindchange="onEduChange">
+        <view class="picker">{{['本科', '硕士', '博士'][eduIndex] || '请选择'}}</view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">可教科目</text>
+      <view class="subject-tags">
+        <view 
+          class="subject-tag {{selectedSubjects.includes(item) ? 'selected' : ''}}" 
+          wx:for="{{allSubjects}}" 
+          wx:key="*this"
+          bindtap="toggleSubject"
+          data-subject="{{item}}"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">教学经历</text>
+      <textarea class="textarea" placeholder="请描述您的教学经历" value="{{formData.experience}}" bindinput="onInput" data-field="experience" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">自我介绍</text>
+      <textarea class="textarea" placeholder="请做自我介绍" value="{{formData.introduction}}" bindinput="onInput" data-field="introduction" />
+    </view>
+  </view>
+  
+  <!-- 证件上传 -->
+  <view class="form-section">
+    <text class="section-title">证件上传</text>
+    
+    <view class="upload-item">
+      <text class="label">学生证</text>
+      <view class="upload-box" bindtap="uploadImage" data-type="studentCard">
+        <text wx:if="{{formData.documents.studentCard}}">✓ 已上传</text>
+        <text wx:else>+ 上传学生证</text>
+      </view>
+    </view>
+    
+    <view class="upload-item">
+      <text class="label">身份证</text>
+      <view class="upload-box" bindtap="uploadImage" data-type="idCard">
+        <text wx:if="{{formData.documents.idCard}}">✓ 已上传</text>
+        <text wx:else>+ 上传身份证</text>
+      </view>
+    </view>
+    
+    <view class="upload-item">
+      <text class="label">简历</text>
+      <view class="upload-box" bindtap="uploadImage" data-type="resume">
+        <text wx:if="{{formData.documents.resume}}">✓ 已上传</text>
+        <text wx:else>+ 上传简历</text>
+      </view>
+    </view>
+  </view>
+  
+  <button class="submit-btn" bindtap="submitProfile">保存资料</button>
+</view>
