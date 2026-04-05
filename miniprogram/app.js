@@ -14,8 +14,8 @@ App({
   globalData: {
     token: '',
     userInfo: null,
-    // 后端 API 地址（开发时替换为你的服务器地址）
-    apiBaseUrl: 'http://localhost:3000/api'
+    // 后端 API 地址 - 服务器公网 IP
+    apiBaseUrl: 'http://60.205.225.50:3000/api'
   },
   
   // 请求封装
